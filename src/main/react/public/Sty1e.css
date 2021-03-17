@@ -1,0 +1,64 @@
+body{
+    background-image: url(icons/wallpaper.jpg);
+}
+header{
+    background-color: aquamarine; 
+    border: double black;
+    text-align: center;  
+}
+
+.Desc{
+    color: chartreuse;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 250px;
+    margin-right: 250px;
+    border: dashed aquamarine 5px;
+    border-radius: 25px; 
+    padding 5px;
+}
+
+main{
+    text-align: center;
+    font-size: 25px;
+    color: chartreuse;
+    margin-top: 20px;
+}
+
+#home{
+    float: left;
+    padding-left: 10px;
+}
+
+.upload img{
+    float: center;
+    margin-left: 265px;
+    
+}
+
+.vertical-menu {
+  margin-top: inherit;
+  width: 200px;
+  height: 640px;
+  overflow-y: auto;
+  float:right;
+}
+
+.vertical-menu a {
+  background-color: aquamarine;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: darkblue;
+}
+
+.vertical-menu a.active {
+  background-color: aquamarine;
+  position: absolute;
+  padding-top: 5px;
+  width: 160px;
+}
