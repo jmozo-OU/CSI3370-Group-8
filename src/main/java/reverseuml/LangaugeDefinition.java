@@ -1,3 +1,5 @@
+package reverseuml;
+
 public class LangaugeDefinition {
     private String languageName;
     private String languageFileExtension;
