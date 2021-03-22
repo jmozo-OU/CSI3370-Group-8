@@ -1,6 +1,4 @@
-body{
-    background-image: url(icons/wallpaper.jpg);
-}
+
 header{
     background-color: aquamarine; 
     border: double black;
@@ -61,4 +59,11 @@ main{
   position: absolute;
   padding-top: 5px;
   width: 160px;
+}
+canvas{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
