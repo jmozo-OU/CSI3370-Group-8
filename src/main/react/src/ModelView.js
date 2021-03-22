@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react'
 import nomnoml  from 'nomnoml'
-
 
 
 class ModelView extends React.Component {
@@ -10,9 +8,9 @@ class ModelView extends React.Component {
       var canvas = document.getElementById('target-canvas');
       var source = '[nomnoml] -> [awesome]';
       nomnoml.draw(canvas, source);
-        return null;
+      return null; 
     }
   
-}
+} 
 
 export default ModelView;
