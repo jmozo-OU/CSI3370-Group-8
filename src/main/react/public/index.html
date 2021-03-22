@@ -2,34 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="style.css">
+    
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="This website converts your source code into a UML class diagram"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>React App</title>
+      
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <canvas id="target-canvas"></canvas>
+      
+        <header>
+            <h1> Object Oriented Parsing Tool</h1>
+        </header>
+        
+          <div class="vertical-menu">
+            <a href="#" class="active">Resources</a>
+             <br>
+            <br>
+            <a href="#"> <img src="icons/upload_button.png" width="150" height="100"></a>
+            <a href="#"> <img src="icons/view_button.png" width="150" height="100"></a>
+            <a href="#"> <img src="icons/download_button.png" width="150" height="100"></a>
+            <a href="Q&A.html"> <img src="icons/help.jpg" width="150" height="100"></a>
+            <a href="Video.html"> <img src="icons/tutorial.jpg" width="150" height="100"></a>
+  
+          </div>
+        
+        <div id="info" class="Desc">
+        <p> 
+        Welcome to the world of Parsing. As many programmers know there are an abundance of coding languages out there and while some of them may be similar not all of them communicate with each other efficiently. Thankfully there is such a thing as UML or Unified Modeling Language. This language is used with many object-oriented languages like Java, Python, Ruby. Our website converts your object-oriented code into UML, which you are then able to view and download.
+        </p>
+        </div>
+        
+         <main>
+            <canvas id='canvas'>
+         </main>
+        
+        <div id = "Pars_Container" ></div>
+
   </body>
 </html>
