@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.post('/upload', function(req, res) {
+app.post('/multiple', function(req, res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req, function(err, fields, files) {
 
