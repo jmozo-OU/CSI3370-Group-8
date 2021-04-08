@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Method {
     private String name;
-    private String access; // Replace with enum
+    private String visibility; // Replace with enum
     private boolean isStatic;
     private String returnType; // Replace with enum
     private Argument[] arguments;

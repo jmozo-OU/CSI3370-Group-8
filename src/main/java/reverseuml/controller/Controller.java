@@ -32,7 +32,7 @@ public class Controller {
     }
 
     @PostMapping("/multiple")
-    public List<Class> generateClassesFromMultipleFiles(@RequestParam("file") List<MultipartFile> files) throws IOException {
+    public List<Class> generateClassesFromMultipleFiles(@RequestParam("files") List<MultipartFile> files) throws IOException {
         ArrayList<Class> classes = new ArrayList<>();
 
         for (MultipartFile file : files) {

@@ -9,10 +9,11 @@ public class Class {
     private String name;
     private Attribute[] attributes;
     private Method[] methods;
-    public Class parentClass;
-    public Class interfaceClass;
-    public boolean isInterface;
-    public boolean isStatic;
+    private Class parentClass;
+    private Class interfaceClass;
+    private boolean isInterface;
+    private boolean isStatic;
+    private String visibility;
 
     public Class() {}
 }
