@@ -5,15 +5,15 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Class {
+public class CustomClass {
     private String name;
     private Attribute[] attributes;
     private Method[] methods;
-    private Class parentClass;
-    private Class interfaceClass;
+    private CustomClass parentClass;
+    private CustomClass interfaceClass;
     private boolean isInterface;
     private boolean isStatic;
     private String visibility;
 
-    public Class() {}
+    public CustomClass() {}
 }

@@ -1,16 +1,20 @@
 package reverseuml.service;
 
-import reverseuml.model.Class;
+import reverseuml.model.CustomClass;
 import st4hidden.org.antlr.runtime.ANTLRStringStream;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,8 +29,14 @@ public class FileService {
         return filenameParts[filenameParts.length - 1];
     }
 
-    public Class generateClassFromFile(MultipartFile file) throws IOException {
-        Class customClass = null;
+    public List<CustomClass> parseFileForLanguage(CharStream stream, Lexer lexer, Parser parser, ParseTreeListener listener) {
+        
+
+        return new ArrayList<CustomClass>();
+    }
+
+    public List<CustomClass> generateClassesFromFile(MultipartFile file) throws IOException {
+        List<CustomClass> customClasses = new ArrayList<CustomClass>();
         String fileType = getFileType(file);
         
         ANTLRInputStream stream = new ANTLRInputStream(file.getInputStream());
@@ -45,10 +55,10 @@ public class FileService {
 
                 walker.walk(listener, tree);
 
-                List<Class> classes = listener.classes;
+                List<CustomClass> classes = listener.classes;
                 
                 if (classes.size() > 0)
-                    customClass = listener.classes.get(0);
+                    customClasses.add(listener.classes.get(0));
 
                 break;
             case "js":
@@ -58,6 +68,6 @@ public class FileService {
                 break;
         }
 
-        return customClass;
+        return customClasses;
     }
 }

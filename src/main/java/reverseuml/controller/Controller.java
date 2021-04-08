@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import reverseuml.model.Class;
+import reverseuml.model.CustomClass;
 import reverseuml.service.FileService;
 
 @RestController
@@ -32,14 +32,13 @@ public class Controller {
     }
 
     @PostMapping("/multiple")
-    public List<Class> generateClassesFromMultipleFiles(@RequestParam("files") List<MultipartFile> files) throws IOException {
-        ArrayList<Class> classes = new ArrayList<>();
+    public List<CustomClass> generateClassesFromMultipleFiles(@RequestParam("files") List<MultipartFile> files) throws IOException {
+        ArrayList<CustomClass> classes = new ArrayList<>();
 
         for (MultipartFile file : files) {
-            Class customClass = fileService.generateClassFromFile(file);
+            List<CustomClass> customClasses = fileService.generateClassesFromFile(file);
 
-            if (customClass != null)
-                classes.add(customClass);
+            classes.addAll(customClasses);
         }
 
         return classes;

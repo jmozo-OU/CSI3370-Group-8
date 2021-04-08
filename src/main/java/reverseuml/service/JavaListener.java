@@ -1,6 +1,6 @@
 package reverseuml.service;
 
-import reverseuml.model.Class;
+import reverseuml.model.CustomClass;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -14,12 +14,12 @@ import antlr.Java8Parser.ClassModifierContext;
 import antlr.Java8Parser.NormalClassDeclarationContext;
 
 public class JavaListener extends Java8BaseListener {
-    ArrayList<Class> classes = new ArrayList<Class>();
+    ArrayList<CustomClass> classes = new ArrayList<CustomClass>();
 
     Stack<Object> stack = new Stack<Object>();
 
     @Override public void enterClassDeclaration(Java8Parser.ClassDeclarationContext ctx) {
-        Class customClass = new Class();
+        CustomClass customClass = new CustomClass();
         NormalClassDeclarationContext classContext = ctx.normalClassDeclaration();
 
         TerminalNode node = classContext.Identifier();
