@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class Argument {
     private String name;
-    private String type; // Replace with enum
+    private String type;
 
     public Argument() {}
 }

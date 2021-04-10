@@ -14,10 +14,13 @@ import antlr.Java8BaseListener;
 import antlr.Java8Parser;
 import antlr.Java8Parser.FieldModifierContext;
 import antlr.Java8Parser.FormalParameterContext;
+import antlr.Java8Parser.InterfaceModifierContext;
+import antlr.Java8Parser.InterfaceTypeContext;
 import antlr.Java8Parser.MethodHeaderContext;
 import antlr.Java8Parser.MethodModifierContext;
 import antlr.Java8Parser.ClassModifierContext;
 import antlr.Java8Parser.NormalClassDeclarationContext;
+import antlr.Java8Parser.NormalInterfaceDeclarationContext;
 import lombok.Getter;
 
 public class JavaListener extends Java8BaseListener {
@@ -33,6 +36,13 @@ public class JavaListener extends Java8BaseListener {
         TerminalNode node = classContext.Identifier();
         customClass.setName(node.getText());
 
+        if (classContext.superclass() != null)
+            customClass.setParentClass(classContext.superclass().classType().Identifier().getText());
+
+        if (classContext.superinterfaces() != null) 
+            for (InterfaceTypeContext interfaceContext : classContext.superinterfaces().interfaceTypeList().interfaceType()) 
+                customClass.addInterface(interfaceContext.classType().Identifier().getText());
+
         for (ClassModifierContext modifier : classContext.classModifier()) {
             String modifierName = modifier.getText();
 
@@ -45,13 +55,20 @@ public class JavaListener extends Java8BaseListener {
                 case "static":
                     customClass.setStatic(true);
                     break;
+                case "final":
+                    customClass.setImmutable(true);
+                    break;
+                case "abstract":
+                    customClass.setAbstract(true);
+                    break;
             }
         }
 
         stack.push(customClass);
     }
 
-    @Override public void enterFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) { 
+    @Override 
+    public void enterFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) { 
         Attribute field = new Attribute();
 
         String name = ctx.getChild(ctx.getChildCount() - 2).getText();;
@@ -70,6 +87,9 @@ public class JavaListener extends Java8BaseListener {
                     break;
                 case "static":
                     field.setStatic(true);
+                    break;
+                case "final":
+                    field.setImmutable(true);
                     break;
             }
         }
@@ -121,14 +141,59 @@ public class JavaListener extends Java8BaseListener {
                 case "static":
                     method.setStatic(true);
                     break;
+                case "final":
+                    method.setImmutable(true);
+                    break;
+                case "abstract":
+                    method.setAbstract(true);
+                    break;
             }
         }
 
         stack.peek().addMethod(method);
     }
 
+    @Override
+    public void enterInterfaceDeclaration(Java8Parser.InterfaceDeclarationContext ctx) { 
+        CustomClass customClass = new CustomClass();
+
+        customClass.setInterface(true);
+
+        NormalInterfaceDeclarationContext interfaceContext = ctx.normalInterfaceDeclaration();
+        TerminalNode node = interfaceContext.Identifier();
+        customClass.setName(node.getText());
+
+        for (InterfaceModifierContext modifier : interfaceContext.interfaceModifier()) {
+            String modifierName = modifier.getText();
+
+            switch(modifierName) {
+                case "public":
+                case "private":
+                case "protected":
+                    customClass.setVisibility(modifierName);
+                    break;
+                case "static":
+                    customClass.setStatic(true);
+                    break;
+                case "final":
+                    customClass.setImmutable(true);
+                    break;
+                case "abstract":
+                    customClass.setAbstract(true);
+                    break;
+            }
+        }
+
+        stack.push(customClass);
+    }
+
     @Override 
     public void exitClassDeclaration(Java8Parser.ClassDeclarationContext ctx) {
+        classes.add(stack.pop());
+    }
+
+    @Override 
+    public void exitInterfaceDeclaration(Java8Parser.InterfaceDeclarationContext ctx) { 
         classes.add(stack.pop());
     }
 }

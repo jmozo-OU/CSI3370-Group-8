@@ -11,13 +11,15 @@ import lombok.ToString;
 @ToString
 public class CustomClass {
     private String name;
-    private ArrayList<Attribute> attributes = new ArrayList<Attribute>();
-    private ArrayList<Method> methods = new ArrayList<Method>();
-    private CustomClass parentClass;
-    private CustomClass interfaceClass;
+    private String parentClass;
+    private ArrayList<String> interfaceClasses = new ArrayList<String>();
     private boolean isInterface;
     private boolean isStatic;
     private String visibility;
+    private boolean immutable;
+    private boolean isAbstract;
+    private ArrayList<Attribute> attributes = new ArrayList<Attribute>();
+    private ArrayList<Method> methods = new ArrayList<Method>();
 
     public CustomClass() {}
 
@@ -27,5 +29,9 @@ public class CustomClass {
 
     public void addMethod(Method method) {
         methods.add(method);
+    }
+
+    public void addInterface(String interfaceName) {
+        interfaceClasses.add(interfaceName);
     }
 }

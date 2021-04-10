@@ -9,8 +9,9 @@ import lombok.ToString;
 @ToString
 public class Attribute {
     private String name;
-    private String visibility; // Replace with enum
-    private String type; // Replace with enum
+    private String visibility; 
+    private boolean immutable;
+    private String type; 
     private boolean isStatic;
     
     public Attribute() {}

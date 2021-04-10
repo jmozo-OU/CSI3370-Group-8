@@ -11,9 +11,11 @@ import lombok.ToString;
 @ToString
 public class Method {
     private String name;
-    private String visibility; // Replace with enum
+    private String visibility; 
     private boolean isStatic;
-    private String returnType; // Replace with enum
+    private boolean immutable;
+    private boolean isAbstract;
+    private String returnType; 
     private ArrayList<Argument> arguments = new ArrayList<Argument>();
 
     public Method() {}
