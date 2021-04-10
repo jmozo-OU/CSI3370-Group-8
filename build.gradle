@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'antlr'
 }
 
 group = 'com.example'
@@ -23,8 +24,13 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	antlr "org.antlr:antlr4:4.5"
 }
 
 test {
 	useJUnitPlatform()
+}
+
+generateGrammarSource {
+    outputDirectory = file("src/main/java/antlr")
 }
