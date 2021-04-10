@@ -27,8 +27,8 @@ public class Controller {
     public void handleIOException(IOException e) {}
 
     @PostMapping("/single")
-    public void generateClassesFromSingleFile(@RequestParam("file") MultipartFile file) {
-        
+    public List<CustomClass> generateClassesFromSingleFile(@RequestParam("file") MultipartFile file) throws IOException {
+        return fileService.generateClassesFromFile(file);
     }
 
     @PostMapping("/multiple")
