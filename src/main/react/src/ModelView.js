@@ -5,9 +5,17 @@ const convertClasses = (classes) => {
   var string = ""
 
   classes.forEach(customClass => {
-    string += "[" + customClass.name + "]\n"
-
-    
+    string += "[" + customClass.name + "|"
+    customClass.attributes.forEach(attributes =>{
+        string += attributes.name + " : " + attributes.type + ";"
+    })
+    string = string.slice(0,-1)
+    string += "|"
+    customClass.methods.forEach(methods =>{
+      string += methods.name + "() : " + methods.returnType + ";"
+    })
+    string = string.slice(0,-1)
+    string += "]\n" 
   });
 
   return string
