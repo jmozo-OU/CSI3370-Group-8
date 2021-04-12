@@ -1,16 +1,27 @@
 import './App.css';
-import React from 'react'
 import nomnoml  from 'nomnoml'
 
+const convertClasses = (classes) => {
+  var string = ""
 
-class ModelView extends React.Component {
-    render() {
-      var canvas = document.getElementById('target-canvas');
-      var source = '[nomnoml] -> [awesome]';
-      nomnoml.draw(canvas, source);
-      return null; 
-    }
-  
-} 
+  classes.forEach(customClass => {
+    string += "[" + customClass.name + "]\n"
 
-export default ModelView;
+    
+  });
+
+  return string
+}
+
+export default function ModelView(props) {
+  const {classes} = props
+
+  console.log(classes)
+  var source = convertClasses(classes)
+  var canvas = document.getElementById('target-canvas')
+
+  console.log(source)
+  nomnoml.draw(canvas, source);
+
+  return null
+}
