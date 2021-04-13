@@ -1,6 +1,6 @@
 package example;
 
-public class ExampleTwo {
+public class ExampleTwo extends Example{
     int myInt;
     String myString;
     boolean myBoolean;

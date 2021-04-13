@@ -17,7 +17,11 @@ const convertClasses = (classes) => {
     string = string.slice(0,-1)
     string += "]\n" 
   });
-
+  classes.forEach(customClass => {
+    if(customClass.parentClass != null){
+      string += "[" + customClass.name + "] -> [" + customClass.parentClass + "]"
+    }
+  })
   return string
 }
 

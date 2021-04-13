@@ -1,0 +1,173 @@
+[{
+        "name": "Test",
+        "parentClass": null,
+        "interfaceClasses": [],
+        "visibility": "public",
+        "immutable": false,
+        "attributes": [{
+                "name": "test",
+                "visibility": "private",
+                "immutable": false,
+                "type": "String",
+                "static": true
+            },
+            {
+                "name": "test1",
+                "visibility": "private",
+                "immutable": true,
+                "type": "int",
+                "static": false
+            },
+            {
+                "name": "test3",
+                "visibility": "public",
+                "immutable": false,
+                "type": "boolean",
+                "static": false
+            }
+        ],
+        "methods": [{
+                "name": "test1",
+                "visibility": "public",
+                "immutable": false,
+                "returnType": "void",
+                "arguments": [{
+                    "name": "test",
+                    "type": "String"
+                }],
+                "static": false,
+                "abstract": false
+            },
+            {
+                "name": "test2",
+                "visibility": "private",
+                "immutable": false,
+                "returnType": "int",
+                "arguments": [{
+                        "name": "test",
+                        "type": "int"
+                    },
+                    {
+                        "name": "test2",
+                        "type": "int"
+                    }
+                ],
+                "static": false,
+                "abstract": false
+            },
+            {
+                "name": "test3",
+                "visibility": "private",
+                "immutable": false,
+                "returnType": "void",
+                "arguments": [],
+                "static": true,
+                "abstract": true
+            }
+        ],
+        "interface": false,
+        "static": true,
+        "abstract": false
+    },
+    {
+        "name": "Test2",
+        "parentClass": null,
+        "interfaceClasses": [],
+        "visibility": "public",
+        "immutable": false,
+        "attributes": [],
+        "methods": [],
+        "interface": true,
+        "static": false,
+        "abstract": false
+    },
+    {
+        "name": "Test3",
+        "parentClass": null,
+        "interfaceClasses": [
+            "Test2"
+        ],
+        "visibility": "public",
+        "immutable": false,
+        "attributes": [],
+        "methods": [{
+            "name": "test1",
+            "visibility": "public",
+            "immutable": false,
+            "returnType": "void",
+            "arguments": [{
+                "name": "test",
+                "type": "String"
+            }],
+            "static": false,
+            "abstract": false
+        }],
+        "interface": false,
+        "static": false,
+        "abstract": false
+    },
+    {
+        "name": "Test4",
+        "parentClass": "Test",
+        "interfaceClasses": [],
+        "visibility": "public",
+        "immutable": false,
+        "attributes": [],
+        "methods": [{
+            "name": "test1",
+            "visibility": "private",
+            "immutable": false,
+            "returnType": "int",
+            "arguments": [],
+            "static": false,
+            "abstract": false
+        }],
+        "interface": false,
+        "static": false,
+        "abstract": true
+    },
+    {
+        "name": "Test5",
+        "parentClass": null,
+        "interfaceClasses": [],
+        "visibility": "private",
+        "immutable": false,
+        "attributes": [],
+        "methods": [],
+        "interface": true,
+        "static": false,
+        "abstract": false
+    },
+    {
+        "name": "Test6",
+        "parentClass": "Test3",
+        "interfaceClasses": [
+            "Test2",
+            "Test5"
+        ],
+        "visibility": "private",
+        "immutable": true,
+        "attributes": [{
+            "name": "test1",
+            "visibility": "private",
+            "immutable": true,
+            "type": "int",
+            "static": false
+        }],
+        "methods": [{
+            "name": "test1",
+            "visibility": "public",
+            "immutable": false,
+            "returnType": "void",
+            "arguments": [{
+                "name": "test",
+                "type": "String"
+            }],
+            "static": false,
+            "abstract": false
+        }],
+        "interface": false,
+        "static": false,
+        "abstract": false
+    }
+]
