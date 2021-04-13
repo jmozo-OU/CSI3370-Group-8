@@ -19,7 +19,7 @@ const convertClasses = (classes) => {
   });
   classes.forEach(customClass => {
     if(customClass.parentClass != null){
-      string += "[" + customClass.name + "] -> [" + customClass.parentClass + "]"
+      string += "[" + customClass.name + "] -> [" + customClass.parentClass + "] \n"
     }
   })
   return string
