@@ -7,7 +7,9 @@ function App() {
   const [classes, setClasses] = useState([])
 
   return (
+    
     <div className="App">
+      <button>Download</button>
       <UploadView setClasses={setClasses}/>
       <ModelView classes={classes}/>
     </div>
